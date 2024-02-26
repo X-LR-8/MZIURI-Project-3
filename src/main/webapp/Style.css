@@ -1,0 +1,46 @@
+.marginoptimize{
+    margin: 0 700px 0 700px
+}
+.inputOptimize{
+    float: right;
+    margin-right: 20px;
+}
+
+.product-section {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-section {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textoptimize{
+    display: block;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+.buttonoptimize{
+    margin-left: 180px;
+    padding: 10px 20px;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buttonoptimize2{
+    color: #000000;
+    border: 2px solid #55ff00;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.divbox{
+    display: flex;
+    align-items: center;
+}
