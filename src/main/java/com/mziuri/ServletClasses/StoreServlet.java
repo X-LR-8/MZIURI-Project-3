@@ -28,7 +28,7 @@ public class StoreServlet extends HttpServlet {
         GetProductsResponse getProductsResponse=new GetProductsResponse(namelist);
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonResponse = objectMapper.writeValueAsString(getProductsResponse);
-        resp.getWriter().write(jsonResponse);
+       // resp.getWriter().write(jsonResponse);
     }
 }
 

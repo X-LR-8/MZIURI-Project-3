@@ -34,4 +34,13 @@ public class GetProductInfoResponse {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "GetProductInfoResponse{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", amount=" + amount +
+                '}';
+    }
 }

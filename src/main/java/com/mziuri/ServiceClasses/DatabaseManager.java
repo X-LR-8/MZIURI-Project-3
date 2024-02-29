@@ -48,60 +48,90 @@ public class DatabaseManager {
         entityManager.close();
         factory.close();
     }
-    public void update(Product product){
+
+    public void update(String name, int newamount) {
         EntityManager entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.merge(product);
+        Product product = entityManager.find(Product.class, idbyname(name));
+        if (product != null) {
+            product.setProd_amount(newamount);
+            entityManager.merge(product);
+        }
         entityManager.getTransaction().commit();
         entityManager.close();
-        factory.close();
-    }
-    public void decreaseamountbyone(){
 
     }
-    public ArrayList<Product> check(ArrayList<Product> arrayList){
-        List<Product> list=read();
-        ArrayList<Product> liststobeadded=new ArrayList<>();
-        for(int i=0; i<arrayList.size(); i++){
-            boolean tf=false;
-            for(int j=0; j<list.size(); j++){
-                if(arrayList.get(i).equals(list.get(j))){
-                    tf=true;
+
+    public void decreaseamountbyone(String name) {
+        int amount=getamountbyname(name)-1;
+        update(name,amount);
+    }
+
+    public ArrayList<Product> check(ArrayList<Product> arrayList) {
+        List<Product> list = read();
+        ArrayList<Product> liststobeadded = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            boolean tf = false;
+            for (int j = 0; j < list.size(); j++) {
+                if (arrayList.get(i).equals(list.get(j))) {
+                    tf = true;
                     break;
                 }
             }
-            if(!tf){
+            if (!tf) {
                 liststobeadded.add(arrayList.get(i));
             }
         }
         return liststobeadded;
     }
-    public boolean checkname(String name){
+    public int getamountbyname(String name){
+        int amount=0;
         List<Product> list=read();
-        boolean tf=false;
         for(int i=0; i<list.size(); i++){
             if(list.get(i).getProd_name().equals(name)){
-                tf=true;
+                amount=list.get(i).getProd_amount();
+            }
+        }
+        return amount;
+    }
+    public int idbyname(String name){
+        int id=0;
+        List<Product> list=read();
+        for(int i=0; i<list.size(); i++){
+            if(list.get(i).getProd_name().equals(name)){
+                id=list.get(i).getProd_id();
+            }
+        }
+        return id;
+    }
+    public boolean checkname(String name) {
+        List<Product> list = read();
+        boolean tf = false;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getProd_name().equals(name)) {
+                tf = true;
             }
         }
         return tf;
     }
-    public boolean checkamount(int amount){
-        List<Product> list=read();
-        boolean tf=false;
-        for(int i=0; i<list.size(); i++){
-            if(list.get(i).getProd_amount()==amount){
-                tf=true;
+
+    public boolean checkamount(int amount) {
+        List<Product> list = read();
+        boolean tf = false;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getProd_amount() == amount) {
+                tf = true;
             }
         }
         return tf;
     }
-    public GetProductInfoResponse getbyname(String name){
-        List<Product> list=read();
-        GetProductInfoResponse getProductInfoResponse=null;
-        for(int i=0; i<list.size(); i++){
-            if(list.get(i).getProd_name().equals(name)){
-               getProductInfoResponse=new GetProductInfoResponse(list.get(i).getProd_name(),list.get(i).getProd_price(),list.get(i).getProd_amount());
+
+    public GetProductInfoResponse getbyname(String name) {
+        List<Product> list = read();
+        GetProductInfoResponse getProductInfoResponse = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getProd_name().equals(name)) {
+                getProductInfoResponse = new GetProductInfoResponse(list.get(i).getProd_name(), list.get(i).getProd_price(), list.get(i).getProd_amount());
             }
         }
         return getProductInfoResponse;

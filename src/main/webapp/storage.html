@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
-	<title>ChatRoom</title>
-	<link rel="stylesheet" href="style.css" />
-	<script src="scr.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0"/>
+    <title>ChatRoom</title>
+    <link rel="stylesheet" href="Style.css"/>
+    <script src="srcstorage.js"></script>
 </head>
 <body>
 <fieldset style="text-align:center; margin-top: 200px" class="marginoptimize">
-	<font size=+2><Strong>Storage</Strong></font>
+    <font size=+2><Strong>Storage</Strong></font>
 </fieldset>
 <form>
-	<fieldset class="marginoptimize">
-		<label style="margin-top: 9px" class="textoptimize"><b>Name:</b><input
-				class="inputOptimize"
-				id="name"
-				name="name"
-				type="text"
-				required
-				oninvalid="this.setCustomValidity('Enter Name Here')"
-		></label>
-		<label class="textoptimize"><b>Amount:</b><input
-				class="inputOptimize"
-				id="amount"
-				name="amount"
-				type="text"
-				required
-				oninvalid="this.setCustomValidity('Enter Amount Here')"
-		></label>
-		<label class="textoptimize"><b>Password:</b><input
-				class="inputOptimize"
-				id="password"
-				name="password"
-				type="text"
-				required
-				oninvalid="this.setCustomValidity('Enter Password Here')"
-		></label>
-		<button class="buttonoptimize">Add Product</button>
-	</fieldset>
+    <fieldset class="marginoptimize">
+        <label style="margin-top: 9px" class="textoptimize"><b>Name:</b><input
+                class="inputOptimize"
+                id="name"
+                name="name"
+                type="text"
+                required
+                oninvalid="this.setCustomValidity('Enter Name Here')"
+        ></label>
+        <label class="textoptimize"><b>Amount:</b><input
+                class="inputOptimize"
+                id="amount"
+                name="amount"
+                type="text"
+                required
+                oninvalid="this.setCustomValidity('Enter Amount Here')"
+        ></label>
+        <label class="textoptimize"><b>Password:</b><input
+                class="inputOptimize"
+                id="password"
+                name="password"
+                type="text"
+                required
+                oninvalid="this.setCustomValidity('Enter Password Here')"
+        ></label>
+        <button class="buttonoptimize" onclick="changeamount()" type="button">Add Product</button>
+    </fieldset>
 </form>
 </body>
 </html>

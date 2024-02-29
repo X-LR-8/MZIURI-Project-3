@@ -35,8 +35,10 @@ public class StorageReader {
         ArrayList<Product> productList=addClass.getArrayList();
         DatabaseManager databaseManager=new DatabaseManager();
         ArrayList<Product> newaddedlist=databaseManager.check(productList);
-        for(int i=0; i<newaddedlist.size(); i++){
-            databaseManager.write(newaddedlist.get(i));
+        if(newaddedlist.isEmpty()){
+            for(int i=0; i<newaddedlist.size(); i++){
+                databaseManager.write(newaddedlist.get(i));
+            }
         }
     }
     public String getpassowrd(){
