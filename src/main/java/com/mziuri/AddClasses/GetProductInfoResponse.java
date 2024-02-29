@@ -1,11 +1,17 @@
 package com.mziuri.AddClasses;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class GetProductInfoResponse {
     private String name;
     private Float price;
     private Integer amount;
-
-    public GetProductInfoResponse(String name, Float price, Integer amount) {
+    @JsonCreator
+    public GetProductInfoResponse(
+           @JsonProperty("name") String name,
+           @JsonProperty("price") Float price,
+           @JsonProperty("amount") Integer amount) {
         this.name = name;
         this.price = price;
         this.amount = amount;

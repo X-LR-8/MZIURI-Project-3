@@ -62,8 +62,8 @@ public class DatabaseManager {
 
     }
 
-    public void decreaseamountbyone(String name) {
-        int amount=getamountbyname(name)-1;
+    public void decreaseamountbyone(String name, int purchasedamount) {
+        int amount=getamountbyname(name)-purchasedamount;
         update(name,amount);
     }
 

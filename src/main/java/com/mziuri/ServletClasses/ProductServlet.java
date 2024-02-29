@@ -21,6 +21,7 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     resp.setContentType("text/html");
     String name2=req.getParameter("name");
+        System.out.println(name2);
     DatabaseManager databaseManager=new DatabaseManager();
     if(databaseManager.checkname(name2)){
         GetProductInfoResponse getProductInfoResponse=databaseManager.getbyname(name2);
@@ -39,7 +40,7 @@ public class ProductServlet extends HttpServlet {
         int amount=Integer.parseInt(amount1);
         DatabaseManager databaseManager=new DatabaseManager();
         if(databaseManager.checkamount(amount)){
-            databaseManager.decreaseamountbyone(name2);
+            databaseManager.decreaseamountbyone(name2,amount);
 //            PurchaseResponse purchaseResponse= new PurchaseResponse(name2,amount);
 //            ObjectMapper objectMapper = new ObjectMapper();
 //            String jsonResponse = objectMapper.writeValueAsString(purchaseResponse);
